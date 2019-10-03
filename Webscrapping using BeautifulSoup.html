@@ -13195,38 +13195,17 @@ like lxml and html5lib.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's see how our beautifulsoup looks like.</p>
+<p>Let's see how our beautifulsoup looks like. As you can see, the content is the same with our <code>get_url</code> object but it's tidier. Also beautifulsoup give us method to make it even more prettier, for tidyness purpouse we slice to only see first 1045 character.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#print(soup)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As you can see, the content is the same with our <code>get_url</code> object but it's tidier. Also beautifulsoup give us method to make it even more prettier.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">prettify</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">1045</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">prettify</span><span class="p">()[:</span><span class="mi">1045</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13243,7 +13222,7 @@ like lxml and html5lib.</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>!DOCTYPE html PUBLIC &#34;-//W3C//DTD XHTML 1.0 Strict//EN&#34; &#34;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&#34;&gt;
+<pre>&lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD XHTML 1.0 Strict//EN&#34; &#34;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&#34;&gt;
 &lt;html __expr-val-dir=&#34;ltr&#34; dir=&#34;ltr&#34; lang=&#34;en-us&#34; xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;
  &lt;head&gt;
   &lt;cfheader name=&#34;X-XSS-Protection&#34; value=&#34;0&#34;&gt;
@@ -13286,39 +13265,11 @@ like lxml and html5lib.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span><span class="s1">&#39;table1&#39;</span><span class="p">})</span>
-<span class="c1">#table</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As we can see, we find a right lines with information we want. I'll explain a bit about the HTML codes you need to know :</p>
-<ul>
-<li><code>th</code> stands for table header/header cell</li>
-<li><code>tr</code> stands for table row</li>
-<li><code>td</code> stand for standard cell </li>
-</ul>
-<p>That's all term in HTML <code>table</code> that you need to know. Now we can pull it one by one, but we will use looping to make our job easier. But first let's make one object that will find all <code>tr</code> in <code>table</code> to help us in looping (so we can loop with the length of the table row).</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tr</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">)</span>
-<span class="n">tr</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">prettify</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">500</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13331,7 +13282,88 @@ like lxml and html5lib.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>table class=&#34;table1&#34;&gt;
+ &lt;tr&gt;
+  &lt;th&gt;
+   Bulan Tahun
+  &lt;/th&gt;
+  &lt;th&gt;
+   Tingkat Inflasi
+  &lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+  &lt;td style=&#34;text-align:left;&#34;&gt;
+   September 2019
+  &lt;/td&gt;
+  &lt;td style=&#34;text-align:left;&#34;&gt;
+   3.39 %
+  &lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+  &lt;td style=&#34;text-align:left;&#34;&gt;
+   Agustus 2019
+  &lt;/td&gt;
+  &lt;td style=&#34;text-align:left;&#34;&gt;
+   3.49 %
+  &lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+  &lt;td style=&#34;text-align:left;&#34;&gt;
+   Juli 2019
+  &lt;/td&gt;
+  &lt;td style=&#34;text-align:left;&#34;&gt;
+   3.32 %
+  &lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+  &lt;td style=&#34;text-align:left;&#34;&gt;
+   Jun
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we can see, we find a right lines with information we want. I'll explain a bit about the HTML codes you need to know :</p>
+<ul>
+<li><code>th</code> stand for table header/header cell</li>
+<li><code>tr</code> stand for table row</li>
+<li><code>td</code> stand for standard cell </li>
+</ul>
+<p>That's all term in HTML <code>table</code> that you need to know. Now we can pull it one by one, but we will use looping to make our job easier. But first let's make one object that will find all <code>tr</code> in <code>table</code> to help us in looping (so we can loop with the length of the table row).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tr</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">)</span>
+<span class="n">tr</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># just call 2 founded tr</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -13378,7 +13410,7 @@ like lxml and html5lib.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#initiating a tuple</span>
@@ -13409,7 +13441,7 @@ like lxml and html5lib.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -13453,7 +13485,7 @@ like lxml and html5lib.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -13470,7 +13502,7 @@ like lxml and html5lib.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -13514,7 +13546,7 @@ like lxml and html5lib.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13533,7 +13565,7 @@ like lxml and html5lib.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[12]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -13607,7 +13639,7 @@ like lxml and html5lib.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;inflation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;inflation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; %&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -13626,13 +13658,13 @@ like lxml and html5lib.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x164bd5ed9b0&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2b2048ce860&gt;</pre>
 </div>
 
 </div>
