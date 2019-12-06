@@ -5,7 +5,7 @@ This module is made as easy and simple as possible which can be used for new dev
 
 ## Dependencies
 
-Actually to follow this module you only need to install beautifulsoup4 with `pip install beautifulsoup4` and you are good to go. But here some libraries that needed to be installed first that I use at bis module : 
+Actually to follow this module you only need to install beautifulsoup4 with `pip install beautifulsoup4` and you are good to go. But here some libraries that needed to be installed first that I use at this module : 
 
 - beautifulSoup4
 - pandas
