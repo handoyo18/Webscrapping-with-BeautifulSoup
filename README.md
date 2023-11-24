@@ -12,6 +12,7 @@ Actually to follow this module you only need to install beautifulsoup4 with `pip
 - beautifulSoup4
 - pandas
 - matplotlibs
+- request
 
 ## What is BeautifulSoup
 
